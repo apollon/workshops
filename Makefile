@@ -7,3 +7,4 @@ buffalo:
 
 docker:
 	docker build -t shop-api -f ./shop/Dockerfile .
+	cd ./shop; docker-compose up -d --no-deps api
