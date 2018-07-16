@@ -44,7 +44,7 @@ func (i *Item) Validate(tx *pop.Connection) (*validate.Errors, error) {
 	return validate.Validate(
 		&validators.StringIsPresent{Field: i.Alias, Name: "Alias"},
 		&validators.StringIsPresent{Field: i.Title, Name: "Title"},
-		&validators.StringIsPresent{Field: i.Desc, Name: "Desc"},
+		&validators.StringIsPresent{Field: i.Description, Name: "Description"},
 		&validators.StringIsPresent{Field: i.Pictures, Name: "Pictures"},
 		&validators.IntIsPresent{Field: i.Price, Name: "Price"},
 		&validators.IntIsPresent{Field: i.Count, Name: "Count"},

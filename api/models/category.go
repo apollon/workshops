@@ -42,7 +42,7 @@ func (c *Category) Validate(tx *pop.Connection) (*validate.Errors, error) {
 	return validate.Validate(
 		&validators.StringIsPresent{Field: c.Alias, Name: "Alias"},
 		&validators.StringIsPresent{Field: c.Title, Name: "Title"},
-		&validators.StringIsPresent{Field: c.Desc, Name: "Desc"},
+		&validators.StringIsPresent{Field: c.Description, Name: "Description"},
 		&validators.StringIsPresent{Field: c.Logo, Name: "Logo"},
 	), nil
 }
