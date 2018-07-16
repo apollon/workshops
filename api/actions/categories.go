@@ -18,5 +18,22 @@ func CategoriesList(c buffalo.Context) error {
 
 // CategoriesIndex default implementation.
 func CategoriesIndex(c buffalo.Context) error {
-	return c.Render(200, r.JSON(map[string]string{"message": "Categories index"}))
+	query := models.DB.Q()
+
+	categoryID := c.Param("id")
+	if categoryID != "" {
+		query = query.Where(`id = ?`, categoryID)
+	}
+
+	parentID := c.Param("parentID")
+	if parentID != "" {
+		query = query.Where(`parent_id = ?`, parentID)
+	}
+
+	categories := []models.Category{}
+	err := query.All(&categories)
+	if err != nil {
+		c.Logger().Error("DB error", errors.WithStack(err))
+	}
+	return c.Render(200, r.JSON(categories))
 }
