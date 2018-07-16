@@ -11,16 +11,16 @@ import (
 )
 
 type Item struct {
-	ID         uuid.UUID `json:"id" db:"id"`
-	CreatedAt  time.Time `json:"created_at" db:"created_at"`
-	UpdatedAt  time.Time `json:"updated_at" db:"updated_at"`
-	Alias      string    `json:"alias" db:"alias"`
-	Title      string    `json:"title" db:"title"`
-	Desc       string    `json:"desc" db:"desc"`
-	Pictures   string    `json:"pictures" db:"pictures"`
-	Price      int       `json:"price" db:"price"`
-	Count      int       `json:"count" db:"count"`
-	CategoryID uuid.UUID `json:"category_id" db:"category_id"`
+	ID          uuid.UUID `json:"id" db:"id"`
+	CreatedAt   time.Time `json:"created_at" db:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at" db:"updated_at"`
+	Alias       string    `json:"alias" db:"alias"`
+	Title       string    `json:"title" db:"title"`
+	Description string    `json:"description" db:"description"`
+	Pictures    string    `json:"pictures" db:"pictures"`
+	Price       int       `json:"price" db:"price"`
+	Count       int       `json:"count" db:"count"`
+	CategoryID  uuid.UUID `json:"category_id" db:"category_id"`
 }
 
 // String is not required by pop and may be deleted
