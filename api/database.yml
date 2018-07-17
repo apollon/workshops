@@ -1,6 +1,6 @@
 development:
   dialect: postgres
-  database: api_development
+  database: shop
   user: postgres
   password: postgres
   host: 127.0.0.1
