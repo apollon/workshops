@@ -18,5 +18,17 @@ func ItemsList(c buffalo.Context) error {
 
 // ItemsIndex default implementation.
 func ItemsIndex(c buffalo.Context) error {
-	return c.Render(200, r.JSON(map[string]string{"message": "Items index"}))
+	query := models.DB.Q()
+
+	categoryID := c.Param("id")
+	if categoryID != "" {
+		query = query.Where(`id = ?`, categoryID)
+	}
+
+	items := []models.Item{}
+	err := query.All(&items)
+	if err != nil {
+		c.Logger().Error("DB error", errors.WithStack(err))
+	}
+	return c.Render(200, r.JSON(items))
 }
